@@ -1,0 +1,9 @@
+---
+# username for git
+git_user_name: DERACO Stéphane
+
+# mail for git
+git_mail: stephane@deraco.fr
+
+# Gnome keyring source file
+git_gnome_keyring_dir: /usr/share/doc/git/contrib/credential/gnome-keyring

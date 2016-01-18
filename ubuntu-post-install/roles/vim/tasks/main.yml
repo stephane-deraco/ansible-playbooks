@@ -1,0 +1,7 @@
+---
+- name: ensure vim is installed
+  apt: name=vim state=present
+  sudo: yes
+
+- name: configure .vimrc
+  copy: src=vimrc dest=/home/{{ansible_user_id}}/.vimrc

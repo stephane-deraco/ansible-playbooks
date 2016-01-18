@@ -1,0 +1,4 @@
+---
+- name: ensure httpie is installed
+  apt: name=httpie state=present
+  sudo: yes

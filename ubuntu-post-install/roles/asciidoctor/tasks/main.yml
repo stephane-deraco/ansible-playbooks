@@ -1,0 +1,5 @@
+---
+- name: ensure asciidoctor is installed
+  apt: name=asciidoctor state=present
+  sudo: yes
+

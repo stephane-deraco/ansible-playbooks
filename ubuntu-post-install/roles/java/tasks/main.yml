@@ -1,0 +1,8 @@
+---
+- name: ensure Java 8 is installed
+  apt: name={{ item }} state=present
+  with_items:
+    - openjdk-8-jdk
+    - maven
+  sudo: yes
+

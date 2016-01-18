@@ -1,0 +1,36 @@
+[core]
+	whitespace = -trailing-space
+	editor = vim
+[diff]
+	mnemonicPrefix = true
+	wordRegex = .
+[log]
+	abbrevCommit = true
+[user]
+	name = {{ git_user_name }}
+	email = {{ git_mail }}
+[alias]
+	lg = !git --no-pager log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lg10 = !git --no-pager log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -n 10
+	st = status
+	changes = diff --name-status
+	diffstat = diff --stat
+	dic = diff --cached
+	bvv = branch -avv
+	cav = commit -a --verbose
+	rvu = remote -v update
+[push]
+	default = upstream
+[status]
+	showUntrackedFiles = all
+[pull]
+	rebase = preserve
+[merge]
+	log = true
+[rerere]
+	enabled = true
+[credential]
+	helper = {{ git_gnome_keyring_dir }}/git-credential-gnome-keyring
+[http]
+	sslverify = false
+

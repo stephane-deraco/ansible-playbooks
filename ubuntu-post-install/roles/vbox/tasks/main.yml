@@ -1,0 +1,4 @@
+---
+- name: add current user to vboxsf group
+  user: name={{ansible_user_id}} groups=vboxsf append=yes
+  sudo: yes

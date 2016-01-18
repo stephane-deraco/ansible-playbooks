@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  roles:
+    - vbox
+    - packages
+    - vim
+    - git
+    - httpie
+    - zsh
+    - docker
+    - java
+    - asciidoctor

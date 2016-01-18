@@ -1,0 +1,12 @@
+---
+- name: ensure Docker is installed
+  apt: name=docker.io state=present
+  sudo: yes
+
+- name: create docker group
+  group: name=docker state=present
+  sudo: yes
+
+- name: add current user to docker group
+  user: name={{ansible_user_id}} groups=docker append=yes
+  sudo: yes

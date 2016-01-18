@@ -1,0 +1,14 @@
+---
+- name: ensure git is installed
+  apt: name=git state=present
+  sudo: yes
+
+- name: configure git
+  template: src=gitconfig dest=/home/{{ansible_user_id}}/.gitconfig
+
+- name: compile git Gnome keyring integration
+  shell: make
+  args:
+    chdir: "{{ git_gnome_keyring_dir }}"
+    creates: git-credential-gnome-keyring
+  sudo: yes

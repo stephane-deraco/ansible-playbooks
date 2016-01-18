@@ -1,0 +1,21 @@
+---
+- name: ensure zsh is installed
+  apt: name=zsh state=present
+  sudo: yes
+
+- name: Check if oh-my-zsh directory exists
+  stat: path=/home/{{ansible_user_id}}/.oh-my-zsh
+  register: omzdir
+
+- name: Clone git repository
+  git: repo=https://github.com/robbyrussell/oh-my-zsh.git depth=1 dest=/home/{{ansible_user_id}}/.oh-my-zsh
+  when: omzdir.stat.exists == False
+
+- name: Using the Oh My Zsh template file and adding it to ~/.zshrc
+  copy: src=/home/{{ansible_user_id}}/.oh-my-zsh/templates/zshrc.zsh-template dest=/home/{{ansible_user_id}}/.zshrc
+  when: omzdir.stat.exists == False
+
+- name: Set zsh as default shell
+  user: name={{ansible_user_id}} shell=/bin/zsh
+  when: omzdir.stat.exists == False
+  sudo: yes
